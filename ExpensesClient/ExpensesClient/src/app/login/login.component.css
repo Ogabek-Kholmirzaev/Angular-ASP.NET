@@ -1,0 +1,20 @@
+mat-card{
+  margin-top: 5%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-bottom: 5%;
+}
+
+.mat-form-field{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.mat-form-btn{
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}

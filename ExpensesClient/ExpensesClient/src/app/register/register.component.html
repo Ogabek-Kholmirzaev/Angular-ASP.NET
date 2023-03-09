@@ -1,0 +1,28 @@
+<mat-card>
+  <span>Create new account</span>
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="mat-form-field">
+      <mat-label>UserName</mat-label>
+      <input type="text" matInput placeholder="UserName" formControlName="userName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="mat-form-field">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="mat-form-field">
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput placeholder="ConfirmPassword" formControlName="confirmPassword">
+    </mat-form-field>
+    <br>
+
+    <div *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch')" style="color: red;">
+      Passwords do not match
+    </div>
+
+    <button class="mat-form-btn" mat-raised-button color="primary" [disabled]="!registerForm.valid">Register</button>
+  </form>
+</mat-card>
