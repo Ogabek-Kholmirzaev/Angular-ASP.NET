@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Type } from '../interfaces/Type';
 import { EntryService } from '../entry.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,14 +17,21 @@ export class NewEntryComponent {
     { value: false, display: 'Income' }
   ];
 
-  constructor(private entryService: EntryService,
-              private router: Router) { }
+  entryForm!: FormGroup;
 
-  entryForm = new FormGroup({
-    description: new FormControl('', Validators.required),
-    isExpense: new FormControl('', Validators.required),
-    value: new FormControl('', [Validators.required, Validators.pattern('\\d+\\.?\\d*')])
-  });
+  constructor(private entryService: EntryService,
+              private router: Router,
+              private formBuilder: FormBuilder) {
+    this.entryForm = this.formBuilder.group({
+      description: new FormControl('', Validators.required),
+      isExpense: new FormControl('', Validators.required),
+      value: new FormControl('', [Validators.required, Validators.pattern('\\d+\\.?\\d*')])
+    });
+  }
+
+  get f() {
+    return this.entryForm.controls;
+  }
 
   onSubmit() {
     console.log(this.entryForm.value);

@@ -22,6 +22,10 @@ export class LoginComponent {
     });
   }
 
+  get f() {
+    return this.loginForm.controls;
+  }
+
   onSubmit(){
     console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value).subscribe(

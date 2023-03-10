@@ -1,10 +1,13 @@
 <mat-card>
-  <span>Create new account</span>
+  <h3 style="text-align: center;">Create new account</h3>
   <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="mat-form-field">
       <mat-label>UserName</mat-label>
       <input type="text" matInput placeholder="UserName" formControlName="userName">
     </mat-form-field>
+    <p *ngIf="(f['userName'].touched || f['userName'].dirty) && f['userName'].errors">
+      <span *ngIf = "f['userName'].errors?.['required'] ">IsExpense is required.</span>
+    </p>
     <br>
 
     <mat-form-field class="mat-form-field">
@@ -12,6 +15,9 @@
       <input type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
     <br>
+    <p *ngIf="(f['password'].touched || f['password'].dirty) && f['password'].errors">
+      <span *ngIf = "f['password'].errors?.['required'] ">IsExpense is required.</span>
+    </p>
 
     <mat-form-field class="mat-form-field">
       <mat-label>Confirm Password</mat-label>
@@ -19,9 +25,9 @@
     </mat-form-field>
     <br>
 
-    <div *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch')" style="color: red;">
+    <span *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch')">
       Passwords do not match
-    </div>
+    </span>
 
     <button class="mat-form-btn" mat-raised-button color="primary" [disabled]="!registerForm.valid">Register</button>
   </form>

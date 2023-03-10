@@ -33,6 +33,10 @@ export class UpdateEntryComponent {
 
   }
 
+  get f() {
+    return this.form.controls;
+  }
+
   types: Type[] = [
     { value: true, display: 'Expense' },
     { value: false, display: 'Income' }

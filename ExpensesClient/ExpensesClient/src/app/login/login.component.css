@@ -5,10 +5,14 @@ mat-card{
   margin-bottom: 5%;
 }
 
-.mat-form-field{
+.mat-form-field, span{
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+span{
+  color: red;
 }
 
 .mat-form-btn{

@@ -1,11 +1,15 @@
-<h2 mat-dialog-title>Update entry</h2>
+<h3 mat-dialog-title style="text-align:center">Update entry</h3>
 
 <mat-dialog-content [formGroup]="form">
   <mat-form-field class="new-entry-field">
     <mat-label>Entry Description</mat-label>
     <input matInput placeholder="Entry description" formControlName="description">
   </mat-form-field>
+  <p *ngIf="(f['description'].touched || f['description'].dirty) && f['description'].errors">
+    <span *ngIf = "f['description'].errors?.['required'] ">Description is required.</span>
+  </p>
   <br>
+
   <mat-form-field class="new-entry-field">
     <mat-label>Entry Type</mat-label>
     <mat-select placeholder="Entry type" formControlName="isExpense">
@@ -14,11 +18,19 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <p *ngIf="(f['isExpense'].touched || f['isExpense'].dirty) && f['isExpense'].errors">
+    <span *ngIf = "f['isExpense'].errors?.['required'] ">IsExpense is required.</span>
+  </p>
   <br>
+
   <mat-form-field class="new-entry-field">
     <mat-label>Entry Value</mat-label>
     <input matInput placeholder="Entry value" formControlName="value">
   </mat-form-field>
+  <p *ngIf="(f['value'].touched || f['value'].dirty) && f['value'].errors">
+    <span *ngIf = "f['value'].errors?.['required'] ">Value is required.</span>
+    <span *ngIf = "f['value'].errors?.['pattern'] ">Value must be number.</span>
+  </p>
 </mat-dialog-content>
 
 <mat-dialog-actions>

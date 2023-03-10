@@ -34,6 +34,10 @@ export class RegisterComponent {
     }
   }
 
+  get f() {
+    return this.registerForm.controls;
+  }
+
   onSubmit(){
     delete this.registerForm.value.confirmPassword;
     this.authService.register(this.registerForm.value).subscribe(

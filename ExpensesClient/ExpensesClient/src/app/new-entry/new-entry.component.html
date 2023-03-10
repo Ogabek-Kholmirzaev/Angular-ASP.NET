@@ -1,10 +1,13 @@
 <mat-card>
-  <span>Create new entry</span>
+  <h3 style="text-align: center">Create new entry</h3>
   <form class="new-entry-form" [formGroup]="entryForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="new-entry-field">
       <mat-label>Entry Description</mat-label>
       <input matInput placeholder="Entry description" formControlName="description">
     </mat-form-field>
+    <p *ngIf="(f['description'].touched || f['description'].dirty) && f['description'].errors">
+      <span *ngIf = "f['description'].errors?.['required'] ">Description is required.</span>
+    </p>
 
     <mat-form-field class="new-entry-field">
       <mat-label>Entry Type</mat-label>
@@ -14,11 +17,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <p *ngIf="(f['isExpense'].touched || f['isExpense'].dirty) && f['isExpense'].errors">
+      <span *ngIf = "f['isExpense'].errors?.['required'] ">IsExpense is required.</span>
+    </p>
 
     <mat-form-field class="new-entry-field">
       <mat-label>Entry Value</mat-label>
       <input matInput placeholder="Entry value" formControlName="value">
     </mat-form-field>
+    <p *ngIf="(f['value'].touched || f['value'].dirty) && f['value'].errors">
+      <span *ngIf = "f['value'].errors?.['required'] ">Value is required.</span>
+      <span *ngIf = "f['value'].errors?.['pattern'] ">Value must be number.</span>
+    </p>
 
     <button mat-raised-button color="primary" class="new-form-button" [disabled]="!entryForm.valid">Create new</button>
   </form>

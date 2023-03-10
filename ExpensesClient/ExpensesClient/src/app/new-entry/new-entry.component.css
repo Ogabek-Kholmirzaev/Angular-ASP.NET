@@ -5,10 +5,14 @@
   margin-bottom: 5%;
 }
 
-.new-entry-field {
+.new-entry-field, span {
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
+}
+
+span{
+  color: red;
 }
 
 .new-form-button {
