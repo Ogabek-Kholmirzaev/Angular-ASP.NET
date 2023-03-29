@@ -25,7 +25,7 @@ export class NewEntryComponent {
     this.entryForm = this.formBuilder.group({
       description: new FormControl('', Validators.required),
       isExpense: new FormControl('', Validators.required),
-      value: new FormControl('', [Validators.required, Validators.pattern('\\d+\\.?\\d*')])
+      value: new FormControl('', [Validators.required, Validators.pattern('-\\d+\\.?\\d*')])
     });
   }
 

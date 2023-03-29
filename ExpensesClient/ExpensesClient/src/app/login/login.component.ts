@@ -33,7 +33,7 @@ export class LoginComponent {
         console.log(data);
         localStorage.setItem('userName', data.userName);
         localStorage.setItem('token_value', data.token);
-        alert("Successfully logged in!");
+        // alert("Successfully logged in!");
         this.router.navigate(['/']).then(() => { window.location.reload() });
       },
       (error: HttpErrorResponse) => {

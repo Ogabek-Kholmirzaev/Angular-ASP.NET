@@ -46,7 +46,7 @@ export class RegisterComponent {
         localStorage.setItem('userName', data.userName);
         localStorage.setItem('token_value', data.token);
 
-        alert('Successfully registered!');
+        // alert('Successfully registered!');
         this.router.navigate(['/']).then(() => { window.location.reload() });
       },
       (error: HttpErrorResponse) => {

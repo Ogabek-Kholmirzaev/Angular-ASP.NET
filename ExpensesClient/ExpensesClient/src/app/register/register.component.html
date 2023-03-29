@@ -24,11 +24,11 @@
       <input type="password" matInput placeholder="ConfirmPassword" formControlName="confirmPassword">
     </mat-form-field>
     <br>
-
-    <span *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch')">
-      Passwords do not match
-    </span>
-
+    <p *ngIf="(f['confirmPassword'].touched || f['confirmPassword'].dirty) && f['confirmPassword'].errors">
+      <span *ngIf="registerForm.get('confirmPassword')?.hasError('passwordMismatch')">
+        Passwords do not match
+      </span>
+    </p>
     <button class="mat-form-btn" mat-raised-button color="primary" [disabled]="!registerForm.valid">Register</button>
   </form>
 </mat-card>

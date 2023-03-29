@@ -28,7 +28,7 @@ export class UpdateEntryComponent {
                 this.form = formBuilder.group({
                   description: [description, Validators.required],
                   isExpense: [isExpense, Validators.required],
-                  value: [value, [Validators.required, Validators.pattern('\\d+\\.?\\d*')]],
+                  value: [value, [Validators.required, Validators.pattern('-\\d+\\.?\\d*')]],
                 });
 
   }
